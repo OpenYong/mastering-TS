@@ -15,3 +15,10 @@ let myPhone = "아이폰";
 myPhone = "갤럭시";
 myPhone = 51; // myPhone 을 string 타입으로 추론하고 있기 때문에 에러
 
+// the 'any' type
+let thing: any = "hello";
+thing = 1;
+thing = false;
+thing();
+thing.toUpperCase();
+
