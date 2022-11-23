@@ -30,10 +30,37 @@ function returnGreet(person: string = "누구세요"): string {
 }
 
 function returnSquare(num: number): number {
-  //   num * num;
+  // num * num;
   return num * num;
 }
 
 const add = (x: number, y: number): number => {
+  // 화살표 함수
   return x + y;
 };
+
+// 21. Anonymous Function Contextual Typing
+const colors = ["red", "orange", "yellow"];
+colors.map((color) => {
+  //   return color.toFixed(); // 타입을 지정해주지 않더라도 TS는 추론을 통해 string이란 것을 안다.
+  // 익명함수도 동일하게 type을 지정할 수 있다.
+  return color.toUpperCase();
+});
+
+// 22. The Void Type
+function printTwice(message: string): void {
+  console.log(message);
+  console.log(message);
+  //   return "메시지 출력 완료"; // 에러: void는 반환해줄 데이터가 없다는 것을 의미하기 때문에
+}
+
+// 23. The Never Type
+function makeError(message: string): never {
+  throw new Error(message);
+}
+
+function gameLoop(): never {
+  while (true) {
+    console.log("게임 루프 도는 중");
+  }
+}
