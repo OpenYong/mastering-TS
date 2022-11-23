@@ -15,7 +15,6 @@ greet("Yong");
 
 // 18. More On Function Parameter Annotations
 const doSomething = (person: string, age: number, isFunny: boolean) => {};
-
 // 인자의 개수에 따라 혹인 인자의 타입에 따라 에러를 발생시킨다.
 //  doSomething("Yong"); // 인자 개수가 맞지 않음,
 //  doSomething("Yong",20, true, false); // 인자 개수가 맞지 않음,
@@ -25,3 +24,16 @@ function greeting(person: string = "누구세요") {
   console.log(`안녕하세요, ${person}님`);
 }
 
+// 20. Return Type Annotations
+function returnGreet(person: string = "누구세요"): string {
+  return `안녕하세요, ${person}님`;
+}
+
+function returnSquare(num: number): number {
+  //   num * num;
+  return num * num;
+}
+
+const add = (x: number, y: number): number => {
+  return x + y;
+};
