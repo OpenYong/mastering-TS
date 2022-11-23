@@ -22,14 +22,14 @@ const singer = { first: "철수", last: "김", age: 20 }; // 변수에 할당한
 printName(singer);
 
 // 28. Creating Type Aliases
-type Point = {
-  x: number;
-  y: number;
-};
+// type Point = {
+//   x: number;
+//   y: number;
+// };
 
-function doublePoint(point: Point): Point {
-  return { x: point.x, y: point.y };
-}
+// function doublePoint(point: Point): Point {
+//   return { x: point.x, y: point.y };
+// }
 
 // 29. Nested Objects
 type Song = {
@@ -59,3 +59,60 @@ const mySong: Song = {
 
 console.log(calcPayout(mySong));
 printSong(mySong);
+
+// 30. Optional Properties
+type Point = {
+  x: number;
+  y: number;
+  z?: number; // 옵셔널
+};
+
+const myPoint: Point = { x: 1, y: 3 };
+
+// 31. The readonly Modifier
+type User = {
+  readonly id: number;
+  username: string;
+};
+
+const user: User = {
+  id: 123123213123,
+  username: "Yong",
+};
+
+// user.id = 298342; // 에러! : id는 readonly이기 때문에.
+user.username = "Lee";
+
+// 32. Intersection Types
+type Circle = {
+  radius: number;
+};
+
+type Colorful = {
+  color: string;
+};
+
+type ColorfultCircle = Circle & Colorful;
+
+const happyFace: ColorfultCircle = {
+  radius: 4,
+  color: "yellow",
+};
+
+type Cat = {
+  numLives: number;
+};
+type Dog = {
+  breed: string;
+};
+
+type CatDog = Cat &
+  Dog & {
+    age: number;
+  };
+
+const christy: CatDog = {
+  numLives: 7,
+  breed: "Husky",
+  age: 9,
+};
