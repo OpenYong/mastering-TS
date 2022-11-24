@@ -68,3 +68,58 @@ const shoes: Product = {
 console.log(shoes);
 console.log(shoes.applyDiscount(0.3));
 
+// 51. Reopening Interfaces
+interface Car {
+  name: string;
+}
+
+interface Car {
+  brand: string;
+  drive(): string;
+}
+
+const sonata: Car = {
+  name: "Sonata",
+  brand: "Hyundai",
+  drive: () => {
+    return "차가 움직인다.";
+  },
+};
+
+// 52. Extending Interfaces
+interface OldCar extends Car {
+  replacedParts: string[];
+}
+
+const pony: OldCar = {
+  name: "pony",
+  brand: "Hyundai",
+  drive: () => {
+    return "차가 덜덜덜 움직인다.";
+  },
+  replacedParts: ["브레이크 패드", "와이퍼", "엔진"],
+};
+
+// 53. Interface Multiple Inheritance
+interface Human {
+  name: string;
+}
+
+interface Employee {
+  readonly id: number;
+  email: string;
+}
+
+// Extending multiple interfaces
+interface Engineer extends Human, Employee {
+  level: string;
+  languages: string[];
+}
+
+const pierre: Engineer = {
+  name: "Pierre",
+  id: 123897,
+  email: "pierre@gmail.com",
+  level: "senior",
+  languages: ["JS", "Python"],
+};
