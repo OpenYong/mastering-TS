@@ -19,7 +19,7 @@ class Player {
   constructor(
     public first: string,
     public last: string,
-    private _score: number
+    protected _score: number
   ) {}
 
   private privateMethod(): void {
@@ -39,6 +39,13 @@ class Player {
       throw new Error("점수는 0보다 커야함");
     }
     this._score = newNumber;
+  }
+}
+
+class SuperPlayer extends Player {
+  public isAdmin: boolean = true;
+  maxScore() {
+    this._score = 999999; // protected 멤버에 접근할 수 있다.
   }
 }
 
