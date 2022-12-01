@@ -54,3 +54,59 @@ player1.fullName;
 player1.score;
 // player1.scroe;
 // player1.privateMethod();
+
+interface Colorful {
+  color: string;
+}
+
+interface Printable {
+  print(): void;
+}
+
+class Phone implements Colorful {
+  constructor(public color: string) {}
+}
+
+class Jacket implements Colorful, Printable {
+  constructor(public brand: string, public color: string) {}
+  print() {
+    console.log(`${this.color} ${this.brand} jacket`);
+  }
+}
+
+const phone1 = new Phone("black");
+const jacket1 = new Jacket("Gucci", "brown");
+
+abstract class Employee {
+  constructor(public first: string, public last: string) {}
+  abstract getPay(): number;
+  greet() {
+    console.log("안녕");
+  }
+}
+
+class FullTimeEmployee extends Employee {
+  constructor(first: string, last: string, private salary: number) {
+    super(first, last);
+  }
+  getPay(): number {
+    return this.salary;
+  }
+}
+
+class PartTimeEmployee extends Employee {
+  constructor(
+    first: string,
+    last: string,
+    private hourlyRate: number,
+    private hoursWorked: number
+  ) {
+    super(first, last);
+  }
+  getPay(): number {
+    return this.hourlyRate * this.hoursWorked;
+  }
+}
+
+const worker1 = new FullTimeEmployee("철수", "김", 200);
+const worker2 = new PartTimeEmployee("수민", "김", 1, 150);
