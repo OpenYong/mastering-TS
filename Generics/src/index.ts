@@ -38,3 +38,13 @@ getRandomElement<number>([1, 2, 3, 4, 5]);
 // 전달되는 매개변수를 통해 제네릭 타입도 추론이 가능하다.
 getRandomElement(["a", "b", "c"]);
 getRandomElement([1, 2, 3]);
+
+// 102. Generics With Multiple Types
+function merge<T, U>(object1: T, object2: U) {
+  return {
+    ...object1,
+    ...object2,
+  };
+}
+
+const mergedObj = merge({ name: "Yong" }, { skill: ["TypeScript", "JS"] });
