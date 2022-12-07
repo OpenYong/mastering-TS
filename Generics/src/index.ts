@@ -23,4 +23,13 @@ function identity<Type>(item: Type): Type {
 }
 identity<number>(7);
 identity<string>("hello");
-identity<Cat>();
+// identity<Cat>();
+
+// 99. Writing Another Generic Function
+function getRandomElement<T>(list: T[]): T {
+  const randIdx = Math.floor(Math.random() * list.length);
+  return list[randIdx];
+}
+
+getRandomElement<string>(["가", "나", "다", "라"]);
+getRandomElement<number>([1, 2, 3, 4, 5]);
