@@ -16,3 +16,11 @@ const inputEl = document.querySelector<HTMLInputElement>("#username")!;
 inputEl.value = "바보바보";
 
 const btn = document.querySelector<HTMLButtonElement>(".btn")!;
+
+// 98. Writing Our First Generic
+function identity<Type>(item: Type): Type {
+  return item;
+}
+identity<number>(7);
+identity<string>("hello");
+identity<Cat>();
