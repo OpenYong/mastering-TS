@@ -48,3 +48,23 @@ function merge<T, U>(object1: T, object2: U) {
 }
 
 const mergedObj = merge({ name: "Yong" }, { skill: ["TypeScript", "JS"] });
+
+// 103. Adding Type Constraints
+// object 타입일때 전개 연산자를 사용할 수 있다.
+// 그러므로 extends 키워드로 제네릭 타입에 Constraints를 추가해보자.
+function merge2<T extends object, U extends object>(object1: T, object2: U) {
+  return {
+    ...object1,
+    ...object2,
+  };
+}
+// const mergedObj2 = merge2({ name: "Yong" }, 9);
+const mergedObj2 = merge2({ name: "Yong" }, { age: 9 });
+
+interface Lengthy {
+  length: number;
+}
+
+function printDoubleLength<T extends Lengthy>(thing: T): number {
+  return thing.length * 2;
+}
