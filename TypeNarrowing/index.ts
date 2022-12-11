@@ -26,3 +26,11 @@ const printLetters = (word?: string) => {
     console.log("매개변수를 전달하지 않았음!");
   }
 };
+
+// 108. Equality Narrowing
+function someDemo(x: string | number, y: string | boolean) {
+  if (x === y) {
+    x.toUpperCase();
+  }
+}
+someDemo(3, "3");
