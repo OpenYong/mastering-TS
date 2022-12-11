@@ -34,3 +34,52 @@ function someDemo(x: string | number, y: string | boolean) {
   }
 }
 someDemo(3, "3");
+
+// 109. Narrowing With The In Operator
+interface Movie {
+  title: string;
+  duration: number;
+}
+
+interface TVShow {
+  title: string;
+  numEpisodes: number;
+  episodeDuration: number;
+}
+
+function getRuntime(media: Movie | TVShow) {
+  if ("numEpisodes" in media) {
+    return media.numEpisodes * media.episodeDuration;
+  }
+  return media.duration;
+}
+
+console.log(getRuntime({ title: "Amadeus", duration: 140 }));
+console.log(
+  getRuntime({ title: "Spongebob", numEpisodes: 80, episodeDuration: 30 })
+);
+
+// Instanceof Narrowing:
+function printFullDate(date: string | Date) {
+  if (date instanceof Date) {
+    console.log(date.toUTCString());
+  } else {
+    console.log(new Date(date).toUTCString());
+  }
+}
+
+// Instanceof Narrowing:
+class User {
+  constructor(public username: string) {}
+}
+class Company {
+  constructor(public name: string) {}
+}
+
+function printName(entity: User | Company) {
+  if (entity instanceof User) {
+    entity;
+  } else {
+    entity;
+  }
+}
