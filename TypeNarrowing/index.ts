@@ -107,3 +107,60 @@ function makeNoise(animal: Cat | Dog): string {
     return "Woof!";
   }
 }
+
+// 112. Discriminated Unions
+interface Rooster {
+  name: string;
+  weight: number;
+  age: number;
+  kind: "rooster";
+}
+
+interface Cow {
+  name: string;
+  weight: number;
+  age: number;
+  kind: "cow";
+}
+
+interface Pig {
+  name: string;
+  weight: number;
+  age: number;
+  kind: "pig";
+}
+
+interface Sheep {
+  name: string;
+  weight: number;
+  age: number;
+  kind: "sheep";
+}
+
+type FarmAnimal = Pig | Rooster | Cow | Sheep;
+
+function getFarmAnimalSound(animal: FarmAnimal) {
+  switch (animal.kind) {
+    case "pig":
+      return "Oink!";
+    case "cow":
+      return "Moooo!";
+    case "rooster":
+      return "Cockadoodledoo!";
+    case "sheep":
+      return "Baaa!";
+    default:
+      // default가 실행되지 않아야할 때 체크할 수 있다.
+      const _exhaustiveCheck: never = animal;
+      return _exhaustiveCheck;
+  }
+}
+
+const stevie: Rooster = {
+  name: "Stevie Chicks",
+  weight: 2,
+  age: 1.5,
+  kind: "rooster",
+};
+
+console.log(getFarmAnimalSound(stevie));
