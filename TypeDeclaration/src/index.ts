@@ -1,5 +1,7 @@
 import axios from "axios";
+import _ from "lodash";
 // node_modules/axios/index.d.ts 파일에 ts 관련 코드가 정의되어 있다.
+
 interface User {
   id: number;
   name: string;
